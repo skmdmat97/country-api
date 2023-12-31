@@ -44,7 +44,7 @@ router.get('/country/:name', auth, async (req, res) => {
         res.status(500).json({ error: err })
     }
 })
-
+console.log("here")
 // Endpoint to retrieve a list of countries with filters and pagination
 router.get('/country', auth, async (req, res) => {
     try {
