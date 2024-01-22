@@ -65,7 +65,7 @@ router.get('/country', auth, async (req, res) => {
             countries = countries.filter(data => data.area >= Number(area));
         }
 
-
+console.log("hello");
         // Apply sorting
         if (sort == "asc") {
             countries = countries.sort((a, b) => a.name.common.localeCompare(b.name));
