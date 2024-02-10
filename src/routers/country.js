@@ -12,6 +12,7 @@ router.post('/auth', async (req, res) => {
         const { username, password } = req.body;
         
         if (username != process.env.USER_NAME || password!=process.env.PASSWORD) {
+
            return res.status(404).json({ error: "Invalid credentials prod" })
         }
 
@@ -87,6 +88,7 @@ console.log("hello");
     catch (err) {
         console.log("error", err);
         res.status(404).json({ error: "not found in prod" })
+
     }
 });
 
