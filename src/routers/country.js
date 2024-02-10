@@ -4,7 +4,7 @@ const auth = require('../middleware/auth')
 const router = new express.Router();
 const axios = require("axios")
 // Sample username and password for testing
-const users = { username: 'skmdmat' };
+const users = { username: 'skmdmat prod' };
 
 // Authentication route
 router.post('/auth', async (req, res) => {
@@ -12,7 +12,7 @@ router.post('/auth', async (req, res) => {
         const { username, password } = req.body;
         
         if (username != process.env.USER_NAME || password!=process.env.PASSWORD) {
-           return res.status(404).json({ error: "Invalid credentials" })
+           return res.status(404).json({ error: "Invalid credentials prod" })
         }
 
         const token = jwt.sign({ username,password }, process.env.JWT_SECRET, { expiresIn: "1h" });
@@ -86,7 +86,7 @@ console.log("hello");
     }
     catch (err) {
         console.log("error", err);
-        res.status(404).json({ error: "not found" })
+        res.status(404).json({ error: "not found in prod" })
     }
 });
 
