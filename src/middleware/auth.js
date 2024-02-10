@@ -6,7 +6,7 @@ const auth  = async(req,res,next)=>{
       const token = req.header("Authorization").replace('Bearer ',"");
       
       if (!token) {
-        return res.status(401).json({ message: 'Authentication token is missing' });
+        return res.status(401).json({ message: 'Authentication token is missing.Pls add it.' });
       }
 
       const decoded = jwt.verify(token, process.env.JWT_SECRET)
@@ -15,7 +15,7 @@ const auth  = async(req,res,next)=>{
    }
    catch(err){
     console.log("error",err)
-     res.status(401).json({ message: 'Authentication token is invalid' });
+     res.status(401).json({ message: 'Authentication token is not valid' });
    }
 }
 
