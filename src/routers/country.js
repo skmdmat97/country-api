@@ -52,9 +52,9 @@ router.get('/country', auth, async (req, res) => {
         // Fetch all the country from api
         let response;
         if (language) {
-            response = await axios.get(`https://restcountries.com/v3.1/lang/${language}?fields=name,population,area`);
+            response = await axios.get(`http://restcountries.com/v3.1/lang/${language}?fields=name,population,area`);
         }
-        else response = await axios.get(`https://restcountries.com/v3.1/all?fields=name,population,area,languages`);
+        else response = await axios.get(`http://restcountries.com/v3.1/all?fields=name,population,area,languages`);
         let countries = response.data
         // Apply filters
         if (population) {
